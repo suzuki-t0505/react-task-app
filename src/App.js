@@ -1,4 +1,6 @@
 import { useState } from "react";
+import TaskList from "./components/TaskList";
+import TaskInput from "./components/TaskInput";
 
 const App = () => {
   const [tasks, setTasks] = useState([{id: 1, text: 'test1'}, {id: 2, text: 'test2'}]);
@@ -31,25 +33,8 @@ const App = () => {
   return (
     <div>
       <h1>Task App</h1>
-      <div>
-        <input
-          type="text"
-          value={taskText}
-          onChange={(e) => changeTaskText(e.target.value)}
-          placeholder='Please enter your task'
-        />
-        <button type="button" onClick={() => addTask()}>Add</button>
-      </div>
-      <ul>
-        {
-          tasks.map((task) => (
-            <li>
-              {task.text}
-              <button onClick={() => deleteTask(task.id)}>Delete</button>
-            </li>
-          ))
-        }
-      </ul>
+      <TaskInput taskText={taskText} changeTaskText={changeTaskText} addTask={addTask} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </div>
   )
 }
