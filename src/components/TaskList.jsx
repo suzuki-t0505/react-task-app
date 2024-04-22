@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import Task from "./Task";
+import { TaskContext } from "./providers/TasksProvider";
 
-const TaskList = (props) => {
-  const {tasks, deleteTask} = props;
+const TaskList = () => {
+  const { tasks } = useContext(TaskContext);
 
   return (
     <ul>
       {tasks.map((task) => (
-        <Task key={task.id} task={task} deleteTask={deleteTask} />
+        <Task key={task.id} task={task} />
       ))}
     </ul>
   )

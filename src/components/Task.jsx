@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { TaskContext } from "./providers/TasksProvider";
+
 const Task = (props) => {
-  const {task, deleteTask} = props;
+  const { task } = props;
+  const { deleteTask } = useContext(TaskContext);
   return (
     <li>
       {task.text}

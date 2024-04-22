@@ -1,5 +1,8 @@
-const TaskInput = (props) => {
-  const {taskText, changeTaskText, addTask} = props;
+import { useContext } from "react";
+import { TaskContext } from "./providers/TasksProvider";
+
+const TaskInput = () => {
+  const {taskText, changeTaskText, addTask} = useContext(TaskContext);
 
   return (
     <div>
